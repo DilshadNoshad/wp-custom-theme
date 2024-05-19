@@ -10,7 +10,22 @@ function iteducation_load_scripts()
 
 add_action("wp_enqueue_scripts", "iteducation_load_scripts");
 
-register_nav_menus(array(
-    "iteducation_main_menu" => "Main Menu",
-    "iteducation_footer_menu" => "Footer Menu",
-));
+function iteducation_config()
+{
+    register_nav_menus(array(
+        "iteducation_main_menu" => "Main Menu",
+        "iteducation_footer_menu" => "Footer Menu",
+    ));
+    
+    $args = array(
+        'width' => 1920,
+        'height' => 225,
+    );
+
+    add_theme_support('custom-header', $args);
+    add_theme_support("post-thumbnails");
+
+    
+}
+
+add_action("after_setup_theme", "iteducation_config", 0);
