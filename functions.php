@@ -16,7 +16,7 @@ function iteducation_config()
         "iteducation_main_menu" => "Main Menu",
         "iteducation_footer_menu" => "Footer Menu",
     ));
-    
+
     $args = array(
         'width' => 1920,
         'height' => 225,
@@ -24,8 +24,32 @@ function iteducation_config()
 
     add_theme_support('custom-header', $args);
     add_theme_support("post-thumbnails");
+    add_theme_support("custom-logo", array(
+        "width" => 200,
+        "height" => 110,
+        "flex-width" => true,
+        "flex-height" => true,
+    ));
 
-    
 }
 
 add_action("after_setup_theme", "iteducation_config", 0);
+
+add_action("widgets_init", "iteducation_sidebars");
+
+function iteducation_sidebars (){
+    register_sidebar(
+        array(
+            "name" => "Blog Sidebar",
+            "id" => "sidebar-blog",
+            "description" => "This is the blog widget. You can add your widgets here.",
+            "before-widget" => '<div class="widget-wrapper">',
+            "after-widget" => "</div>",
+            "before-title" => '<h4 class="widget-title" >',
+            "after-title" => "</h4>"
+        )
+    );
+}
+
+
+
