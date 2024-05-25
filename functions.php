@@ -43,10 +43,21 @@ function iteducation_sidebars (){
             "name" => "Blog Sidebar",
             "id" => "sidebar-blog",
             "description" => "This is the blog widget. You can add your widgets here.",
-            "before-widget" => '<div class="widget-wrapper">',
-            "after-widget" => "</div>",
-            "before-title" => '<h4 class="widget-title" >',
-            "after-title" => "</h4>"
+            "before_widget" => '<div class="widget-wrapper">',
+            "after_widget" => "</div>",
+            "before_title" => '<h4 class="widget-title" >',
+            "after_title" => "</h4>"
+        )
+    );
+    register_sidebar(
+        array(
+            "name" => "Page Sidebar",
+            "id" => "sidebar-page",
+            "description" => "This is the page widget. You can add your widgets here.",
+            "before_widget" => '<div class="widget-wrapper">',
+            "after_widget" => "</div>",
+            "before_title" => '<h4 class="widget-title" >',
+            "after_title" => "</h4>"
         )
     );
 }
