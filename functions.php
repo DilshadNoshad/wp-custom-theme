@@ -60,6 +60,39 @@ function iteducation_sidebars (){
             "after_title" => "</h4>"
         )
     );
+    register_sidebar(
+        array(
+            "name" => "Service One",
+            "id" => "service-1",
+            "description" => "This is the service 1 widget. You can add your widgets here.",
+            "before_widget" => '<div class="widget-wrapper">',
+            "after_widget" => "</div>",
+            "before_title" => '<h4 class="widget-title" >',
+            "after_title" => "</h4>"
+        )
+    );
+    register_sidebar(
+        array(
+            "name" => "Service Two",
+            "id" => "service-2",
+            "description" => "This is the service 2 widget. You can add your widgets here.",
+            "before_widget" => '<div class="widget-wrapper">',
+            "after_widget" => "</div>",
+            "before_title" => '<h4 class="widget-title" >',
+            "after_title" => "</h4>"
+        )
+    );
+    register_sidebar(
+        array(
+            "name" => "Service Three",
+            "id" => "service-3",
+            "description" => "This is the service 3 widget. You can add your widgets here.",
+            "before_widget" => '<div class="widget-wrapper">',
+            "after_widget" => "</div>",
+            "before_title" => '<h4 class="widget-title" >',
+            "after_title" => "</h4>"
+        )
+    );
 }
 
 
