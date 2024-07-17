@@ -6,22 +6,27 @@
             <main id="main" class="site-main">
 
                     <div class="container">
+                    <?php get_sidebar("page");?>
                         <div class="page-item">
                             <?php
 
 while (have_posts()): the_post();
 
     ?>
-														<article>
-														<header><h1><?php the_title()?></h1></header>
+																<article>
+																<header><h1><?php the_title()?></h1></header>
 
-								            <?php the_content();?>
-														</article>
-																                            <?php endwhile;
+										            <?php the_content();?>
+																</article>
+																		                            <?php
+    if (comments_open() || get_comments_number()) {
+        comments_template();
+    }
+endwhile;
 
 ?>
                         </div>
-                        <?php get_sidebar("page");?>
+                        <!-- <?php get_sidebar("page");?> -->
                     </div>
             </main>
         </div>
