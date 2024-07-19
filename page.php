@@ -13,12 +13,13 @@
 while (have_posts()): the_post();
 
     ?>
-																<article>
-																<header><h1><?php the_title()?></h1></header>
+																	<article>
+																	<header><h1><?php the_title()?></h1></header>
 
-										            <?php the_content();?>
-																</article>
-																		                            <?php
+											            <?php the_content();?>
+	                                                    <?php wp_link_pages()?>
+																	</article>
+																			                            <?php
     if (comments_open() || get_comments_number()) {
         comments_template();
     }
