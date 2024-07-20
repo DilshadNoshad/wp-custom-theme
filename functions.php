@@ -30,7 +30,8 @@ function iteducation_config()
         "flex-width" => true,
         "flex-height" => true,
     ));
-
+    
+    add_theme_support( 'title-tag' );
 }
 
 add_action("after_setup_theme", "iteducation_config", 0);
