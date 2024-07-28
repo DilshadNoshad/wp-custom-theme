@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: No Header Template
+ */
+?>
+
 <?php get_header()?>
 <img src="<?php header_image();?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
 <!-- content -->
@@ -6,11 +12,7 @@
 <main id="main" class="site-main">
 
 <div class="container">
-<?php
 
-    get_sidebar("page");
-
-?>
 
 <div class="page-item">
 <?php

@@ -30,15 +30,18 @@ function iteducation_config()
         "flex-width" => true,
         "flex-height" => true,
     ));
-    
-    add_theme_support( 'title-tag' );
+
+    add_theme_support('automatic-feed-links');
+    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) ); //enable to write semantic tag in comment-list etc
+    add_theme_support('title-tag');
 }
 
 add_action("after_setup_theme", "iteducation_config", 0);
 
 add_action("widgets_init", "iteducation_sidebars");
 
-function iteducation_sidebars (){
+function iteducation_sidebars()
+{
     register_sidebar(
         array(
             "name" => "Blog Sidebar",
@@ -47,7 +50,7 @@ function iteducation_sidebars (){
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
-            "after_title" => "</h4>"
+            "after_title" => "</h4>",
         )
     );
     register_sidebar(
@@ -58,7 +61,7 @@ function iteducation_sidebars (){
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
-            "after_title" => "</h4>"
+            "after_title" => "</h4>",
         )
     );
     register_sidebar(
@@ -69,7 +72,7 @@ function iteducation_sidebars (){
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
-            "after_title" => "</h4>"
+            "after_title" => "</h4>",
         )
     );
     register_sidebar(
@@ -80,7 +83,7 @@ function iteducation_sidebars (){
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
-            "after_title" => "</h4>"
+            "after_title" => "</h4>",
         )
     );
     register_sidebar(
@@ -91,10 +94,15 @@ function iteducation_sidebars (){
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
-            "after_title" => "</h4>"
+            "after_title" => "</h4>",
         )
     );
 }
 
-
-
+// add compatibility for before 5.2 version of wordpress
+if (! function_exists('wp_body_open')) {
+    function wp_body_open()
+    {
+        do_action("wp_body_open");
+    }
+}

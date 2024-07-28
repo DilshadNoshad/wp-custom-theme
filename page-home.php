@@ -36,22 +36,8 @@ $postList = new Wp_Query($args);
 if ($postList->have_posts()):
     while ($postList->have_posts()): $postList->the_post();
 
-        ?>
-																<article class="latest-news">
-		                                                           <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail("large")?></a> 
-														<h3> <a href="<?php the_permalink(); ?>"><?php the_title()?></a> </h3>
-														    <div class="meta-info">
-												<p>
-		                                            by <span><?php the_author_posts_link();?></span>
-		                                            Categories: <span><?php the_category(" ");?></span>
-		                                            Tags: <?php the_tags("", ", ");?>
-		                                        </p>
-		                                        <p><span><?php echo get_the_date(); ?></span></p>
-
-										    </div>
-								            <?php the_excerpt();?>
-														</article>
-																		                            <?php endwhile;
+        get_template_part("parts/content", "latest-news");
+    endwhile;
     wp_reset_postdata();
 else: ?>
                             <p>Snap! Nothing to show here!</p>

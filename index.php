@@ -11,19 +11,11 @@
 if (have_posts()):
     while (have_posts()): the_post();
 
-        ?>
-																								<article>
-																								<h2><a href="<?php the_permalink();?>"><?php the_title()?></a></h2>
-														                                        <a href="<?php the_permalink();?>"><?php the_post_thumbnail(array(275, 275))?></a>
-																								    <div class="meta-info">
-																						<p>Posted in <?php echo get_the_date(); ?> by <?php the_author_posts_link();?></p>
-																					<p>Category: <?php the_category(" ");?></p>
-																		            <p>Tags: <?php the_tags(" ", ", ");?></p>
+    get_template_part("parts/content"); 
+    // without file extension it is requires parameter
+    // get_template_partit takes 2 params
 
-																				    </div>
-																		            <?php the_excerpt();?>
-																								</article>
-																										                            <?php endwhile;?>
+        endwhile;?>
 
 			                                                                                                            <!-- after loop end for limited number of post  -->
 			                                                                                                        <div class="wpdevs-pagination">

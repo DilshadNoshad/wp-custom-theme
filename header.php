@@ -7,6 +7,7 @@
     <?php wp_head();?>
 </head>
 <body <?php body_class()?> >
+    <?php wp_body_open() ?>
    <div id="page" class="site">
         <header>
             <section class="top-bar">
@@ -26,6 +27,9 @@ if (has_custom_logo()) {
                 </div>
                 </div>
             </section>
+            <?php 
+            if(!is_page_template("noheader-template.php")): //here u can also write page name ,id, slug or all
+            ?>
             <section class="menu-area">
                 <div class="container">
                 <nav class="main-menu">
@@ -42,4 +46,5 @@ wp_nav_menu(array("theme_location" => "iteducation_main_menu", "depth" => 3))
                 </nav>
                 </div>
             </section>
+            <?php endif; ?>
         </header>
