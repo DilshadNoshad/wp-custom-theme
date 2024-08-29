@@ -3,7 +3,28 @@
         <div id="content" class="site_content">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
-                <section class="hero">Hero</section>
+                <?php
+$hero_title = get_theme_mod("set_hero_title", "please set some title");
+$hero_subtitle = get_theme_mod("set_hero_subtitle", "please set some subtitle");
+$hero_button_text = get_theme_mod("set_hero_button_text", "Learn More");
+$hero_button_link = get_theme_mod("set_hero_button_text_link", "#");
+$hero_height = get_theme_mod("set_hero_height", 800);
+$hero_background = wp_get_attachment_url(get_theme_mod("set_hero_background"));
+?>
+                <section class="hero" style="background-image:url('<?php echo $hero_background; ?>');">
+<div class="overlay" style="min-height: <?php echo $hero_height; ?>px;" >
+    <div class="container">
+        <div class="hero-items">
+            <h1><?php echo $hero_title; ?></h1>
+
+            <p><?php echo nl2br($hero_subtitle); ?></p>
+
+            <!-- it is text area new line problem solve nt nl2br() method -->
+            <a href="<?php echo $hero_button_link; ?>"><?php echo $hero_button_text ?></a>
+        </div>
+    </div>
+</div>
+                </section>
                 <section class="services">
                     <h2>Services</h2>
                     <div class="container">
@@ -24,11 +45,16 @@ if (is_active_sidebar("service-1")) {
                     <div class="container">
 
                             <?php
+
+$per_page = get_theme_mod("set_per_page", 3);
+$category_include = get_theme_mod("set_category_include");
+$category_exclude = get_theme_mod("set_category_exclude");
+
 $args = array(
     "post_type" => "post", //bydefault it is post we do only learning
-    "post_per_page" => 3,
-    "category__in" => array(11, 7, 19, 15),
-    "category__not_in" => array(1),
+    "post_per_page" => $per_page,
+    "category__in" => explode(",", $category_include),
+    "category__not_in" => explode(",", $category_exclude),
 );
 
 $postList = new Wp_Query($args);

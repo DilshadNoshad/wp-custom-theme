@@ -36,6 +36,208 @@ function iteducation_customizer($wp_customize)
 
     );
 
+    //for hero section
+
+    $wp_customize->add_section("sec-hero", array(
+        "title" => "Hero Section",
+    )
+    );
+
+    // hero title setting
+    $wp_customize->add_setting(
+        "set_hero_title",
+        array(
+            "type" => "theme_mod",
+            "default" => "please add some title ",
+            "sanitize_callback" => "sanitize_text_field",
+        )
+
+    );
+
+    // hero title control
+    $wp_customize->add_control(
+        "set_hero_title",
+        array(
+            "label" => "Hero Title",
+            "description" => "Please, type your title here",
+            "section" => "sec-hero",
+            "type" => "text",
+        )
+
+    );
+
+    // hero title setting
+    $wp_customize->add_setting(
+        "set_hero_subtitle",
+        array(
+            "type" => "theme_mod",
+            "default" => "please add some subtitle ",
+            "sanitize_callback" => "sanitize_textarea_field",
+        )
+
+    );
+
+    // hero title control
+    $wp_customize->add_control(
+        "set_hero_subtitle",
+        array(
+            "label" => "Hero Subtitle",
+            "description" => "Please, type your subtitle here",
+            "section" => "sec-hero",
+            "type" => "textarea",
+        )
+
+    );
+
+    // button text setting
+    $wp_customize->add_setting(
+        "set_hero_button_text",
+        array(
+            "type" => "theme_mod",
+            "default" => "Learn More",
+            "sanitize_callback" => "sanitize_text_field",
+        )
+
+    );
+
+    // button text control
+    $wp_customize->add_control(
+        "set_hero_button_text",
+        array(
+            "label" => "Hero Button Text",
+            "description" => "Please, type your hero button text here",
+            "section" => "sec-hero",
+            "type" => "text",
+        )
+
+    );
+
+    // button text link
+    $wp_customize->add_setting(
+        "set_hero_button_text_link",
+        array(
+            "type" => "theme_mod",
+            "default" => "#",
+            "sanitize_callback" => "esc_url_raw",
+        )
+
+    );
+
+    // button text link
+    $wp_customize->add_control(
+        "set_hero_button_text_link",
+        array(
+            "label" => "Hero Button Link",
+            "description" => "Please, type your hero button link here",
+            "section" => "sec-hero",
+            "type" => "url",
+        )
+
+    );
+
+    // hero height
+    $wp_customize->add_setting(
+        "set_hero_height",
+        array(
+            "type" => "theme_mod",
+            "default" => 800,
+            "sanitize_callback" => "absint",
+        )
+
+    );
+
+    // button text link
+    $wp_customize->add_control(
+        "set_hero_height",
+        array(
+            "label" => "Hero Height",
+            "description" => "Please, type your hero height here",
+            "section" => "sec-hero",
+            "type" => "number",
+        )
+
+    );
+
+    // hero background
+    $wp_customize->add_setting(
+        "set_hero_background",
+        array(
+            "type" => "theme_mod",
+            "sanitize_callback" => "absint", // bcz media control return media id not url
+        )
+
+    );
+
+    // button text link
+    $wp_customize->add_control(new Wp_Customize_Media_Control(
+        $wp_customize, //manager
+        "set_hero_background",
+        array(
+            "label" => "Hero Image",
+            "section" => "sec-hero",
+            "mime_type" => "image", //allow only image etc audio
+        )
+    )
+    );
+
+    // 3. Blog
+    $wp_customize->add_section(
+        'sec_blog',
+        array(
+            'title' => 'Blog Section',
+        ));
+
+    // Posts per page
+    $wp_customize->add_setting(
+        'set_per_page',
+        array(
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'absint',
+        ));
+
+    $wp_customize->add_control(
+        'set_per_page',
+        array(
+            'label' => 'Posts per page',
+            'description' => 'How many items to display in the post list?',
+            'section' => 'sec_blog',
+            'type' => 'number',
+        ));
+
+    // Post categories to include
+    $wp_customize->add_setting(
+        'set_category_include',
+        array(
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+
+    $wp_customize->add_control(
+        'set_category_include',
+        array(
+            'label' => 'Post categories to include',
+            'description' => 'Comma separated values or single category ID',
+            'section' => 'sec_blog',
+            'type' => 'text',
+        ));
+
+    // Post categories to exclude
+    $wp_customize->add_setting(
+        'set_category_exclude',
+        array(
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+
+    $wp_customize->add_control(
+        'set_category_exclude',
+        array(
+            'label' => 'Post categories to exclude',
+            'description' => 'Comma separated values or single category ID',
+            'section' => 'sec_blog',
+            'type' => 'text',
+        ));
+
 }
 
 add_action("customize_register", "iteducation_customizer");
