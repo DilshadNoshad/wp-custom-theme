@@ -4,9 +4,9 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <?php
-$hero_title = get_theme_mod("set_hero_title", "please set some title");
-$hero_subtitle = get_theme_mod("set_hero_subtitle", "please set some subtitle");
-$hero_button_text = get_theme_mod("set_hero_button_text", "Learn More");
+$hero_title = get_theme_mod("set_hero_title", __("please set some title", "iteducation"));
+$hero_subtitle = get_theme_mod("set_hero_subtitle", __("please set some subtitle", "iteducation"));
+$hero_button_text = get_theme_mod("set_hero_button_text", __("Learn More", "iteducation"));
 $hero_button_link = get_theme_mod("set_hero_button_text_link", "#");
 $hero_height = get_theme_mod("set_hero_height", 800);
 $hero_background = wp_get_attachment_url(get_theme_mod("set_hero_background"));
@@ -26,7 +26,7 @@ $hero_background = wp_get_attachment_url(get_theme_mod("set_hero_background"));
 </div>
                 </section>
                 <section class="services">
-                    <h2>Services</h2>
+                    <h2><?php _e("Services", "iteducation")?></h2>
                     <div class="container">
                         <div class="services-item"><?php
 if (is_active_sidebar("service-1")) {
@@ -41,7 +41,7 @@ if (is_active_sidebar("service-1")) {
                     </div>
                 </section>
                 <section class="home-blog">
-                    <h2>Latest News</h2>
+                    <h2><?php _e("Latest News", "iteducation")?></h2>
                     <div class="container">
 
                             <?php
@@ -66,7 +66,7 @@ if ($postList->have_posts()):
     endwhile;
     wp_reset_postdata();
 else: ?>
-                            <p>Snap! Nothing to show here!</p>
+                            <p><?php _e("Snap! Nothing to show here!", "iteducation")?></p>
                             <?php
 endif;
 ?>

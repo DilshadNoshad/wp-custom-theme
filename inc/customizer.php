@@ -7,8 +7,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_section( // in section if u do not add controls then u can not see the section at least one control found inside it
         "sec-copyright", //between the section add the controls we have settings they are responsible for save data in database when data enter in fields means persists it for curiosity check database having table wp_options and inside it a field that starts with the name theme_mods
         array(
-            "title" => "Copyright Settings",
-            "description" => "Copyright Settings",
+            "title" => __("Copyright Settings", "iteducation"),
+            "description" => __("Copyright Settings", "iteducation"),
         )
     );
 
@@ -18,7 +18,7 @@ function iteducation_customizer($wp_customize)
         array(
             "type" => "theme_mod", //type of field that will be stored into the database. we have tw types of fields, option (option) and theme modification (theme_mod)
             // option is rarely use regardless of the active theme and theme_mode is for particular theme
-            "default" => "Copyright &copy; - All Rights Reserved", // default value that appears in the customizer form more case is empty or other more intresting methods
+            "default" => __("Copyright &copy; - All Rights Reserved", "iteducation"), // default value that appears in the customizer form more case is empty or other more intresting methods
             "sanitize_callback" => "sanitize_text_field",
         )
 
@@ -28,8 +28,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control( //inside it two params one is name and second is array of items
         "set_copyright", //link to setting related to this control
         array(
-            "label" => "Copyright Information",
-            "description" => "Please, type your copyright here",
+            "label" => __("Copyright Information", "iteducation"),
+            "description" => __("Please, type your copyright here", "iteducation"),
             "section" => "sec-copyright",
             "type" => "text",
         )
@@ -39,7 +39,7 @@ function iteducation_customizer($wp_customize)
     //for hero section
 
     $wp_customize->add_section("sec-hero", array(
-        "title" => "Hero Section",
+        "title" => __("Hero Section", "iteducation"),
     )
     );
 
@@ -48,7 +48,7 @@ function iteducation_customizer($wp_customize)
         "set_hero_title",
         array(
             "type" => "theme_mod",
-            "default" => "please add some title ",
+            "default" => __("please add some title ", "iteducation"),
             "sanitize_callback" => "sanitize_text_field",
         )
 
@@ -58,8 +58,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         "set_hero_title",
         array(
-            "label" => "Hero Title",
-            "description" => "Please, type your title here",
+            "label" => __("Hero Title", "iteducation"),
+            "description" => __("Please, type your title here", "iteducation"),
             "section" => "sec-hero",
             "type" => "text",
         )
@@ -71,7 +71,7 @@ function iteducation_customizer($wp_customize)
         "set_hero_subtitle",
         array(
             "type" => "theme_mod",
-            "default" => "please add some subtitle ",
+            "default" => __("please add some subtitle ", "iteducation"),
             "sanitize_callback" => "sanitize_textarea_field",
         )
 
@@ -81,8 +81,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         "set_hero_subtitle",
         array(
-            "label" => "Hero Subtitle",
-            "description" => "Please, type your subtitle here",
+            "label" => __("Hero Subtitle", "iteducation"),
+            "description" => __("Please, type your subtitle here", "iteducation"),
             "section" => "sec-hero",
             "type" => "textarea",
         )
@@ -94,7 +94,7 @@ function iteducation_customizer($wp_customize)
         "set_hero_button_text",
         array(
             "type" => "theme_mod",
-            "default" => "Learn More",
+            "default" => __("Learn More", "iteducation"),
             "sanitize_callback" => "sanitize_text_field",
         )
 
@@ -104,8 +104,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         "set_hero_button_text",
         array(
-            "label" => "Hero Button Text",
-            "description" => "Please, type your hero button text here",
+            "label" => __("Hero Button Text", "iteducation"),
+            "description" => __("Please, type your hero button text here", "iteducation"),
             "section" => "sec-hero",
             "type" => "text",
         )
@@ -127,8 +127,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         "set_hero_button_text_link",
         array(
-            "label" => "Hero Button Link",
-            "description" => "Please, type your hero button link here",
+            "label" => __("Hero Button Link", "iteducation"),
+            "description" => __("Please, type your hero button link here", "iteducation"),
             "section" => "sec-hero",
             "type" => "url",
         )
@@ -150,8 +150,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         "set_hero_height",
         array(
-            "label" => "Hero Height",
-            "description" => "Please, type your hero height here",
+            "label" => __("Hero Height", "iteducation"),
+            "description" => __("Please, type your hero height here", "iteducation"),
             "section" => "sec-hero",
             "type" => "number",
         )
@@ -173,7 +173,7 @@ function iteducation_customizer($wp_customize)
         $wp_customize, //manager
         "set_hero_background",
         array(
-            "label" => "Hero Image",
+            "label" => __("Hero Image", "iteducation"),
             "section" => "sec-hero",
             "mime_type" => "image", //allow only image etc audio
         )
@@ -184,7 +184,7 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_section(
         'sec_blog',
         array(
-            'title' => 'Blog Section',
+            'title' => __('Blog Section', "iteducation"),
         ));
 
     // Posts per page
@@ -198,8 +198,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         'set_per_page',
         array(
-            'label' => 'Posts per page',
-            'description' => 'How many items to display in the post list?',
+            'label' => __('Posts per page', "iteducation"),
+            'description' => __('How many items to display in the post list?', "iteducation"),
             'section' => 'sec_blog',
             'type' => 'number',
         ));
@@ -215,8 +215,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         'set_category_include',
         array(
-            'label' => 'Post categories to include',
-            'description' => 'Comma separated values or single category ID',
+            'label' => __('Post categories to include', "iteducation"),
+            'description' => __('Comma separated values or single category ID', "iteducation"),
             'section' => 'sec_blog',
             'type' => 'text',
         ));
@@ -232,8 +232,8 @@ function iteducation_customizer($wp_customize)
     $wp_customize->add_control(
         'set_category_exclude',
         array(
-            'label' => 'Post categories to exclude',
-            'description' => 'Comma separated values or single category ID',
+            'label' => __('Post categories to exclude', "iteducation"),
+            'description' => __('Comma separated values or single category ID', "iteducation"),
             'section' => 'sec_blog',
             'type' => 'text',
         ));

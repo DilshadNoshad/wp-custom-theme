@@ -8,12 +8,12 @@ if (has_post_thumbnail()): ?>
     <a href="<?php the_permalink();?>"><img width="275" height="275" src="<?php echo get_template_directory_uri() . "/images/default.jpg" ?>" alt="no featured image found"></a>
 <?php endif;?>
 <div class="meta-info">
-<p>Posted in <?php echo get_the_date(); ?> by <?php the_author_posts_link();?></p>
+<p><?php _e("Posted in", "iteducation")?> <?php echo get_the_date(); ?> <?php _e("by", "iteducation")?> <?php the_author_posts_link();?></p>
 <?php if (has_category()): ?>
-<p>Category: <?php the_category(" ");?></p>
+<p><?php _e("Categories", "iteducation")?>: <?php the_category(" ");?></p>
 <?php endif;?>
 <?php if (has_tag()): ?>
-<p>Tags: <?php the_tags(" ", ", ");?></p>
+<p><?php _e("Tags", "iteducation")?>: <?php the_tags(" ", ", ");?></p>
 <?php endif;?>
 
 </div>

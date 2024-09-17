@@ -9,26 +9,25 @@
         <div class="container">
         <div class="archive-items">
         <?php
-        if (have_posts()):
-        while (have_posts()): the_post();
+if (have_posts()):
+    while (have_posts()): the_post();
 
-        
-        get_template_part("parts/content", "archive"); // i deleted the archive file i will use the content 
-        // i helps u it some cases of dynamic things  if u call like this must be written file name with the "-" 
+        get_template_part("parts/content", "archive"); // i deleted the archive file i will use the content
+        // i helps u it some cases of dynamic things  if u call like this must be written file name with the "-"
 
-        endwhile;?>
+    endwhile;?>
 
-        <!-- after loop end for limited number of post  -->
-        <div class="wpdevs-pagination">
-        <div class="pages new"><?php previous_posts_link("<< Newer Posts")?></div>
-        <div class="pages old"><?php next_posts_link("Older Posts >>")?></div>
-        </div>
+	        <!-- after loop end for limited number of post  -->
+	        <div class="wpdevs-pagination">
+	        <div class="pages new"><?php previous_posts_link(__("<< Newer Posts", "iteducation"))?></div>
+	        <div class="pages old"><?php next_posts_link(__("Older Posts >>", "iteducation"))?></div>
+	        </div>
+	        <?php
+else: ?>
+        <p><?php _e("Snap! Nothing to show here!", "iteducation")?></p>
         <?php
-        else: ?>
-        <p>Snap! Nothing to show here!</p>
-        <?php
-        endif;
-        ?>
+endif;
+?>
         </div>
         <?php get_sidebar()?>
         </div>
