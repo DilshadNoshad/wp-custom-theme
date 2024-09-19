@@ -29,8 +29,8 @@ function iteducation_config()
     // sever more functions like that use in wordpress
 
     register_nav_menus(array(
-        "iteducation_main_menu" => __("Main Menu", "iteducation"),
-        "iteducation_footer_menu" => __("Footer Menu", "iteducation"),
+        "iteducation_main_menu" => esc_html__("Main Menu", "iteducation"),
+        "iteducation_footer_menu" => esc_html__("Footer Menu", "iteducation"),
     ));
 
     $args = array(
@@ -60,9 +60,9 @@ function iteducation_sidebars()
 {
     register_sidebar(
         array(
-            "name" => __("Blog Sidebar", "iteducation"),
+            "name" => esc_html__("Blog Sidebar", "iteducation"),
             "id" => "sidebar-blog",
-            "description" => __("This is the blog widget. You can add your widgets here.", "iteducation"),
+            "description" => esc_html__("This is the blog widget. You can add your widgets here.", "iteducation"),
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
@@ -71,9 +71,9 @@ function iteducation_sidebars()
     );
     register_sidebar(
         array(
-            "name" => __("Page Sidebar", "iteducation"),
+            "name" => esc_html__("Page Sidebar", "iteducation"),
             "id" => "sidebar-page",
-            "description" => __("This is the page widget. You can add your widgets here.", "iteducation"),
+            "description" => esc_html__("This is the page widget. You can add your widgets here.", "iteducation"),
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
@@ -82,9 +82,9 @@ function iteducation_sidebars()
     );
     register_sidebar(
         array(
-            "name" => __("Service One", "iteducation"),
+            "name" => esc_html__("Service One", "iteducation"),
             "id" => "service-1",
-            "description" => __("This is the service 1 widget. You can add your widgets here.", "iteducation"),
+            "description" => esc_html__("This is the service 1 widget. You can add your widgets here.", "iteducation"),
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
@@ -93,9 +93,9 @@ function iteducation_sidebars()
     );
     register_sidebar(
         array(
-            "name" => __("Service Two", "iteducation"),
+            "name" => esc_html__("Service Two", "iteducation"),
             "id" => "service-2",
-            "description" => __("This is the service 2 widget. You can add your widgets here.", "iteducation"),
+            "description" => esc_html__("This is the service 2 widget. You can add your widgets here.", "iteducation"),
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',
@@ -104,9 +104,9 @@ function iteducation_sidebars()
     );
     register_sidebar(
         array(
-            "name" => __("Service Three", "iteducation"),
+            "name" => esc_html__("Service Three", "iteducation"),
             "id" => "service-3",
-            "description" => __("This is the service 3 widget. You can add your widgets here.", "iteducation"),
+            "description" => esc_html__("This is the service 3 widget. You can add your widgets here.", "iteducation"),
             "before_widget" => '<div class="widget-wrapper">',
             "after_widget" => "</div>",
             "before_title" => '<h4 class="widget-title" >',

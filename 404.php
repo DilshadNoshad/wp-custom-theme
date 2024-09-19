@@ -5,14 +5,14 @@
 
 <div class="container">
 <div class="error-404">
-<header><h1><?php _e("Page not found", "iteducation")?></h1>
-<p><?php _e("Unfortunately, the page you tried to read does not exit on this site.", "iteducation")?></p></header>
+<header><h1><?php esc_html_e("Page not found", "iteducation")?></h1>
+<p><?php esc_html_e("Unfortunately, the page you tried to read does not exit on this site.", "iteducation")?></p></header>
 
 <div class="error">
-    <p><?php _e("How about doing a search?", "iteducation")?></p>
+    <p><?php esc_html_e("How about doing a search?", "iteducation")?></p>
     <?php get_search_form();?>
 
-    <?php the_widget("WP_Widget_Recent_Posts", array("title" => __("Latest Posts", "iteducation"), "number" => 3))?>
+    <?php the_widget("WP_Widget_Recent_Posts", array("title" => esc_html__("Latest Posts", "iteducation"), "number" => 3))?>
 </div>
 </div>
 </div>

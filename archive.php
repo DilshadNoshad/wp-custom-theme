@@ -1,5 +1,5 @@
         <?php get_header()?>
-        <img src="<?php header_image();?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+        <img src="<?php header_image();?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" alt="" />
         <!-- content -->
         <div id="content" class="site_content">
         <div id="primary" class="content-area">
@@ -19,12 +19,12 @@ if (have_posts()):
 
 	        <!-- after loop end for limited number of post  -->
 	        <div class="wpdevs-pagination">
-	        <div class="pages new"><?php previous_posts_link(__("<< Newer Posts", "iteducation"))?></div>
-	        <div class="pages old"><?php next_posts_link(__("Older Posts >>", "iteducation"))?></div>
+	        <div class="pages new"><?php previous_posts_link(esc_html__("<< Newer Posts", "iteducation"))?></div>
+	        <div class="pages old"><?php next_posts_link(esc_html__("Older Posts >>", "iteducation"))?></div>
 	        </div>
 	        <?php
 else: ?>
-        <p><?php _e("Snap! Nothing to show here!", "iteducation")?></p>
+        <p><?php esc_html_e("Snap! Nothing to show here!", "iteducation")?></p>
         <?php
 endif;
 ?>

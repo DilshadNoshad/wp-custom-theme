@@ -3,7 +3,7 @@
     <div id="main">
         <div class="container">
 
-		<h1><?php _e("Search Results for", "iteducation") ?>: <?php echo get_search_query() ?> </h1>
+		<h1><?php esc_html_e("Search Results for", "iteducation") ?>: <?php echo get_search_query() ?> </h1>
             <?php
 
 get_search_form();

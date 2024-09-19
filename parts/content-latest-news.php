@@ -6,17 +6,17 @@ if (has_post_thumbnail()): ?>
 <h3> <a href="<?php the_permalink();?>"><?php the_title()?></a> </h3>
 <div class="meta-info">
 <p>
-<?php _e("by", "iteducation")?> <span><?php the_author_posts_link();?></span>
+<?php esc_html_e("by", "iteducation")?> <span><?php the_author_posts_link();?></span>
 
 <?php if (has_category()): ?>
-    <?php _e("Categories", "iteducation")?> : <span><?php the_category(" ");?></span>
+    <?php esc_html_e("Categories", "iteducation")?> : <span><?php the_category(" ");?></span>
 <?php endif;?>
 <?php if (has_tag()): ?>
-    <?php _e("Tags", "iteducation")?>: <?php the_tags("", ", ");?>
+    <?php esc_html_e("Tags", "iteducation")?>: <?php the_tags("", ", ");?>
 <?php endif;?>
 </p>
 
-<p><span><?php echo get_the_date(); ?></span></p>
+<p><span><?php echo esc_html(get_the_date()); ?></span></p>
 
 </div>
 <?php the_excerpt();?>
