@@ -1,32 +1,20 @@
 <?php get_header()?>
-<img src="<?php header_image();?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" alt="" />
+
 <!-- content -->
 <div id="content" class="site_content">
 <div id="primary" class="content-area">
 <main id="main" class="site-main">
-
-<div class="container">
-<?php
-
-    get_sidebar("page");
-
-?>
-
 <div class="page-item">
 <?php
 
 while (have_posts()): the_post();
 
-    get_template_part("parts/content", "page");
+//  it is responsible for bringing all the content we have within the page builder's editor
 
-    if (comments_open() || get_comments_number()) {
-        comments_template();
-    }
+    the_content();
 endwhile;
 
 ?>
-</div>
-<!-- <?php get_sidebar("page");?> -->
 </div>
 </main>
 </div>
