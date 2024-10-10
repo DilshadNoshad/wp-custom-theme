@@ -1,0 +1,5 @@
+.wp-block-quote.is-style-red-quote {
+  border-left: 7px solid red;
+  background: #f9f3f3;
+  padding: 10px 20px;
+}

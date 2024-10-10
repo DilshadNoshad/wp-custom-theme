@@ -50,7 +50,50 @@ function iteducation_config()
     add_theme_support('automatic-feed-links');
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script')); //enable to write semantic tag in comment-list etc
     add_theme_support('title-tag');
+    
+    // add_theme_support('align-wide');
+    add_theme_support('responsive-embeds');
+
+    add_theme_support('editor-styles'); //for look editor thing to frontend exact
+    add_editor_style("style-editor.css"); // css file name
+
+    add_theme_support('wp-block-styles');
+    // add_theme_support('editor-color-palette', array(
+    //     array(
+    //         "name" => __("Primary", "iteducation"),
+    //         "slug" => "primary", // important define via css
+    //         "color" => "#001E32",
+    //     ),
+    //     array(
+    //         "name" => __("Secondary", "iteducation"),
+    //         "slug" => "secondary", // important define via css
+    //         "color" => "#CFAF07",
+    //     ),
+    // ));
+
+    // add_theme_support('disable-custom-colors'); //disable custom color uses for user
+
 }
+
+function iteducation_register_block_styles()
+{
+    wp_register_style("iteducation-style-block", get_template_directory_uri() . "/style-block.css");
+    register_block_style(
+        "core/quote", //for name in console write wp.blocks.getBlockTypes()
+        array(
+            "name" => "red-quote",
+            "label" => "Red Quote",
+            "is_default" => true,
+            //     "inline_style" => ".wp-block-quote.is-style-red-quote {
+            //     border-left: 7px solid red; background:#f9f3f3; padding: 10px 20px;
+            // }", another way for more properties handle style_handle
+            "style_handle" => "iteducation-style-block", //become clean
+        )
+    );
+
+}
+
+add_action("init", "iteducation_register_block_styles");
 
 add_action("after_setup_theme", "iteducation_config", 0);
 
@@ -114,6 +157,20 @@ function iteducation_sidebars()
         )
     );
 }
+
+function custom_login_logo()
+{
+    echo '<style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(' . get_template_directory_uri() . '/images/logo.png);
+            height: 100px;
+            width: 100%;
+            background-size: contain;
+        }
+    </style>';
+}
+
+add_action('login_enqueue_scripts', 'custom_login_logo');
 
 // add compatibility for before 5.2 version of wordpress
 if (!function_exists('wp_body_open')) {
